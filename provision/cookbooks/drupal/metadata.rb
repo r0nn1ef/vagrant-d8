@@ -1,6 +1,6 @@
 name             'drupal'
-maintainer       'YOUR_COMPANY_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Kenneth Copeland Ministries'
+maintainer_email 'rferguson@kcm.org'
 license          'All rights reserved'
 description      'Installs/Configures drupal'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
