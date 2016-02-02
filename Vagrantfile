@@ -73,7 +73,7 @@ Vagrant.configure(2) do |config|
   SHELL
 
   config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = "./cookbooks"
+    chef.cookbooks_path = "./provision/cookbooks"
     chef.add_recipe "drupal"
   end
 
