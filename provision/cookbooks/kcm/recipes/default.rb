@@ -7,6 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "apt"
-include_recipe "apache"
-include_recipe "php"
+include_recipe "apt::default"
+include_recipe "apache::default"
+include_recipe "php::default"
