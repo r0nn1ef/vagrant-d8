@@ -6,8 +6,9 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-execute "update-package-manager" do
+
+# Update the Apt repository so we can install other packages.
+execute "update apt" do
   command "apt-get update"
   ignore_failure true
-  timeout 6000
 end
