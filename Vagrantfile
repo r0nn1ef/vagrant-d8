@@ -50,8 +50,7 @@ Vagrant.configure(2) do |config|
     vb.name = "Drupal 8 Demo"
   end
 
-  config.berkshelf.enabled = true
-  config.berkshelf.berksfile_path = "./Berksfile"
+
 
   #
   # View the documentation for the provider you are using for more
@@ -72,9 +71,21 @@ Vagrant.configure(2) do |config|
     # sudo apt-get install -y apache2
   SHELL
 
-  config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = "./provision/cookbooks"
-  end
+  config.berkshelf.enabled = true
+  config.berkshelf.berksfile_path = "./Berksfile"
+
+  config.vm.provision :chef_solo do |chef|
+      chef.json = {
+        :mysql => {
+          :server_root_password => 'rootpass',
+          :server_debian_password => 'debpass',
+          :server_repl_password => 'replpass'
+        }
+      }
+      chef.run_list = [
+        "recipe[drupal8::default]"
+      ]
+    end
 
 
 end
