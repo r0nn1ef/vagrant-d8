@@ -15,4 +15,6 @@ user 'drupal' do
   shell '/bin/bash'
 end
 
+include_recipe "php::default"
 include_recipe "apache2::default"
+include_recipe "php::default"
