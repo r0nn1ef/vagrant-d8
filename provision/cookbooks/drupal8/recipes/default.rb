@@ -6,15 +6,3 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-
-group 'drupal'
-
-user 'drupal' do
-  group 'drupal'
-  system true
-  shell '/bin/bash'
-end
-
-include_recipe "php::default"
-include_recipe "apache2::default"
-include_recipe "php::default"
