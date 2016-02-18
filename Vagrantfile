@@ -23,6 +23,7 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 80, host: 8081
+  config.vm.network "forwarded_port", guest: 3306, host: 3309
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -71,19 +72,19 @@ Vagrant.configure(2) do |config|
     # sudo apt-get install -y apache2
   SHELL
 
-  config.berkshelf.enabled = true
-  config.berkshelf.berksfile_path = "./Berksfile"
+  #config.berkshelf.enabled = true
+  #config.berkshelf.berksfile_path = "./Berksfile"
 
   config.vm.provision :chef_solo do |chef|
-      chef.json = {
-        :mysql => {
-          :server_root_password => 'rootpass',
-          :server_debian_password => 'debpass',
-          :server_repl_password => 'replpass'
-        }
-      }
+      #chef.json = {
+      #  :mysql => {
+      #    :server_root_password => 'rootpass',
+      #    :server_debian_password => 'debpass',
+      #    :server_repl_password => 'replpass'
+      #  }
+      #}
       chef.run_list = [
-        "recipe[drupal8::default]"
+        "recipe[base::default]"
       ]
     end
 
